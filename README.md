@@ -53,4 +53,30 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Open `http
+Open `http://127.0.0.1:8000` in your browser.
+
+## DevSecOps Implementation
+
+I integrated Villa into an automated DevSecOps workflow to practise security scanning, continuous integration, containerization, and deployment.
+
+The workflow consists of the following stages:
+
+1. **GitHub:** Stores the application source code.
+2. **Semgrep:** Performs Static Application Security Testing (SAST).
+3. **Trivy:** Scans project dependencies for known vulnerabilities.
+4. **Jenkins:** Automates the CI/CD pipeline.
+5. **Docker:** Packages the application into a container image.
+6. **Amazon ECR:** Stores the Docker image.
+7. **Kubernetes:** Deploys and manages the application.
+8. **Argo CD:** Synchronizes deployment configurations through GitOps.
+9. **OWASP ZAP:** Performs Dynamic Application Security Testing (DAST) on the running application.
+
+## Deployment
+
+The application is containerized using Docker and deployed on a Kubernetes cluster. Its Docker image is stored in Amazon ECR.
+
+Argo CD manages the Kubernetes deployment by monitoring the separate GitOps repository and synchronizing the deployment configurations.
+
+## Project Goal
+
+The goal of this work was to understand how security testing, CI/CD automation, containerization, cloud image storage, Kubernetes, and GitOps can be combined to build a practical DevSecOps workflow.
